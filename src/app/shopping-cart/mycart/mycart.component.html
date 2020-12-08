@@ -1,0 +1,9 @@
+<div class="alert alert-info">No Items Added</div>
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let item of cartItems">
+    <app-cart-item [cartItem] = "item"></app-cart-item>
+  </li>
+  <li class="list-group-item bg-success text-white">
+    <strong>Total: {{1100 | currency:"₱"}}</strong>
+  </li>
+</ul>
