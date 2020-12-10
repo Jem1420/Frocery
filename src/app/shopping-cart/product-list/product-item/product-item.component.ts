@@ -9,6 +9,7 @@ import { CartService } from 'src/app/services/cart.service';
 export class ProductItemComponent implements OnInit {
 
   @Input() productItem: Product
+  cart : Product[] = [];
   constructor(private _cs: CartService) {
 
   }
@@ -16,8 +17,8 @@ export class ProductItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  handleAddToCart(){
-    this._cs.sendItem(this.productItem);
+  increaseCartItem(product){
+    this._cs.addProduct(product);
   }
 
 }

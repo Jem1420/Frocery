@@ -43,3 +43,32 @@
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
+
+
+.card, .form-control, .btn {
+  border-radius: 0;
+}
+
+
+.product-btn {
+  font-size: smaller;
+}
+
+/* .fa-heart {
+  color: palevioletred;
+  cursor: pointer;
+} */
+
+.guest-form-card h2 {
+  text-transform: uppercase;
+  font-size: medium;
+}
+
+.guest-form-card label {
+  font-size: small;
+}
+
+.btn-primary.disabled, .btn-primary:disabled {
+  cursor: not-allowed;
+}
+

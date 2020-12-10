@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CartService } from '../services/cart.service';
+import { Product } from '../models/product';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -6,10 +8,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./shopping-cart.component.css']
 })
 export class ShoppingCartComponent implements OnInit {
-
-  constructor() { }
+  cart : Product[] = [];
+  cartTotal = 0;
+  constructor(private _cs: CartService) { }
 
   ngOnInit(): void {
+    this.cart = this._cs.getItemLocally();
+    console.log(this.cart);
   }
+  getTotal(){
+    return this.cart.reduce((i,j) => i+j.price * j.qty, 0)
+  }
+  increaseCartItem(product){
+    this._cs.addProduct(product);
+  }
+
+  decreaseCartItem(product){
+    this._cs.decreaseProduct(product);
+  }
+
+
+
 
 }
