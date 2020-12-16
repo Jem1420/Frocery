@@ -1,3 +1,17 @@
+:root {
+  --primaryColor:  #f9ca24;
+  --darkPrimaryColor: #d1ae20;
+  --mainGreen: #4CAF50;
+  --mainRed: #f44336;
+  --mainWhite: #fff;
+  --mainBlack: #181717;
+  --mainGrey: #f0f0f0;
+  --mainLineGrey: #808080;
+  --mainSpacing: 0.1rem;
+  --mainTransition: all 0.3s linear;
+  --yellowTrans: rgba(249, 228, 148, 0.5);
+  --border:#c0c0c0;
+}
 .footer{
   grid-area: footer;
   background-color: grey;
@@ -70,5 +84,116 @@
 
 .btn-primary.disabled, .btn-primary:disabled {
   cursor: not-allowed;
+}
+
+/* home */
+.banner-area{
+  background: linear-gradient(to right, rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://www.commercialintegrator.com/wp-content/uploads/2018/03/Adcorp360_Checkout_RollerCoaster-e1521556862985.jpg');
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center center;
+  height: 100vh;
+}
+.banner-text{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.banner-text h2{
+  font-family: sofia !important;
+  color: #fff;
+  margin-top: -20px;
+  font-size: 56px;
+  text-align: center;
+}
+ .banner-text h3{
+  font-family: sofia !important;
+  color: #fff;
+  font-size: 75px;
+  text-align: center;
+}
+
+.textlayout{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin-top: 15rem;
+  display: inline-block;
+  align-items: center;
+  justify-content: center;
+}
+
+/* forms */
+
+.form{
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+.form-container{
+  background: rgba(0,0,0,0.8);
+  color: var(--mainWhite);
+  display: inline-block;
+  flex-direction: column;
+  width:25rem;
+  padding: 2.5rem;
+  border: .1rem var(--border) solid;
+  border-radius: .5rem;
+  list-style-type: none;
+  margin: 5rem 5rem;
+}
+.form-container li{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+.logo{
+  width:45px;
+  height:40px;
+  border-radius:50%;
+  position:relative;
+  top: 5px;
+  right: .1px;
+}
+.avatar{
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  left: 50%;
+  margin-left: -50px;
+  margin-top: -90px;
+}
+.useravatar{
+  height: 110px;
+  width: 110px;
+  position: absolute;
+  left: 10%;
+  margin-left: 45px;
+  margin-top: -80px;
+}
+.center{
+  font-family: sofia !important;
+  align-items: center;
+  padding: 0;
+  margin: 20px 0 0 0;
+  font-size: 40px;
+  text-align: center;
+}
+img{
+  margin: 0rem;
+}
+input{
+  padding: 5px;
+  border: 2px var(--border) solid;
+  border-radius: 5px;
 }
 

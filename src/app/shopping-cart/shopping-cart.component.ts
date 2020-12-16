@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../services/cart.service';
 import { Product } from '../models/product';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -10,7 +11,7 @@ import { Product } from '../models/product';
 export class ShoppingCartComponent implements OnInit {
   cart : Product[] = [];
   cartTotal = 0;
-  constructor(private _cs: CartService) { }
+  constructor(private _cs: CartService, private route: Router) { }
 
   ngOnInit(): void {
     this.cart = this._cs.getItemLocally();
@@ -27,7 +28,9 @@ export class ShoppingCartComponent implements OnInit {
     this._cs.decreaseProduct(product);
   }
 
-
+  openShipping(){
+    this.route.navigate(['/shipping']);
+  }
 
 
 }
