@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http'
+
 import { AppComponent } from './app.component';
 import { NavComponent } from './pages/nav/nav.component';
 import { HeaderComponent } from './pages/header/header.component';
@@ -20,6 +22,7 @@ import { PaymentComponent } from './checkout/payment/payment.component';
 import { PlaceOrderComponent } from './checkout/place-order/place-order.component';
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
+
 
 @NgModule({
   declarations: [
@@ -40,11 +43,12 @@ import { SignupComponent } from './signup/signup.component';
     PaymentComponent,
     PlaceOrderComponent,
     SigninComponent,
-    SignupComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -9,15 +9,16 @@ import { PaymentComponent } from './checkout/payment/payment.component';
 import { PlaceOrderComponent } from './checkout/place-order/place-order.component';
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
+import { AuthGuard } from './services/auth.guard';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
-  {path: 'shop', component: ShopComponent},
-  {path: 'about', component: AboutComponent},
-  {path: 'shopping-cart', component: ShoppingCartComponent},
-  {path: 'shipping', component: ShippingComponent},
-  {path: 'payment', component: PaymentComponent},
-  {path: 'place-order', component: PlaceOrderComponent},
+  {path: 'shop', component: ShopComponent, canActivate:[AuthGuard]},
+  {path: 'about', component: AboutComponent, canActivate: [AuthGuard]},
+  {path: 'shopping-cart', component: ShoppingCartComponent, canActivate: [AuthGuard]},
+  {path: 'shipping', component: ShippingComponent, canActivate: [AuthGuard]},
+  {path: 'payment', component: PaymentComponent, canActivate: [AuthGuard]},
+  {path: 'place-order', component: PlaceOrderComponent, canActivate: [AuthGuard]},
   {path: 'signin', component: SigninComponent},
   {path: 'signup', component: SignupComponent},
   {path: '', redirectTo: 'home', pathMatch: 'full'}
