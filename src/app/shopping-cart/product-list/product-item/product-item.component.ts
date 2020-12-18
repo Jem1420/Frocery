@@ -17,7 +17,7 @@ export class ProductItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  increaseCartItem(product){
+  increaseCartItem(product:Product){
     this._cs.addProduct(product);
   }
 

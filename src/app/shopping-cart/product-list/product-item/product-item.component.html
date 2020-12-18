@@ -1,20 +1,20 @@
 <div class="card mb-4 shadow-sm">
-  <img class="bd-placeholder-img card-img-top" width="100%" [src]="productItem.imageUrl">
+  <img class="bd-placeholder-img card-img-top" width="100%" [src]="productItem.image_fld">
 
   <div class="card-body">
     <p class="card-text">
-      <strong>{{productItem.name}}</strong>
+      <strong>{{productItem.name_fld}}</strong>
     </p>
     <p class="card-text">
-      <strong>{{productItem.price | currency: "₱"}}</strong>
+      <strong>{{productItem.price_fld | currency: "₱"}}</strong>
     </p>
-    <p class="card-text">{{productItem.description}}</p>
+    <p class="card-text">{{productItem.description_fld}}</p>
     <div class="d-flex justify-content-between align-items-center">
       <div class="btn-group">
         <button type="button" class="btn btn-sm btn-success product-btn" (click)="increaseCartItem(productItem)">Add to Cart</button>
         <button type="button" class="btn btn-sm btn-secondary product-btn">View Details</button>
       </div>
-      <small class="text-success"><strong>Stocks:{{productItem.stocks}}</strong></small>
+      <small class="text-success"><strong>Stocks:{{productItem.countInStock_fld}}</strong></small>
     </div>
   </div>
 </div>

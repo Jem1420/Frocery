@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
+import { UserService } from '../services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signin',
@@ -8,9 +10,12 @@ import { DataService } from '../services/data.service';
 })
 export class SigninComponent implements OnInit {
 
-  constructor(private _ds: DataService) { }
+  constructor(private _ds: DataService, private _us: UserService, private route:Router) { }
 
   ngOnInit(): void {
+    if(this._us.isLoggedIn()){
+      this.route.navigate(['shop']);
+    }
   }
 
   onSubmit(e){
@@ -19,11 +24,10 @@ export class SigninComponent implements OnInit {
     let param2 = e.target[1].value;
     this._ds.postData('login', {param1, param2}).subscribe((res:any)=>{
       console.log(res);
+      this._us.setLoggedIn();
+      this.route.navigate(['shop']);
     });
     //param1:param1, param2:param2 "value pairing"
-    console.log(e);
-    console.log(e.target[0].value);
-    console.log(e.target[1].value);
   }
 
 }
