@@ -1,1 +1,38 @@
-<p>signup works!</p>
+<form ngNativeValidate (submit)="submitRegistration($event)">
+<ul class="form-container">
+  <li>
+    <h2>Create Account</h2>
+  </li>
+  <li>
+    <label for="fname">
+      First Name
+    </label>
+    <input type="fname" name="fname" id="fname" required/>
+  </li>
+  <li>
+    <label for="mname">
+      Middle Name
+    </label>
+    <input type="mname" name="mname" id="mname" required/>
+  </li>
+  <li>
+    <label for="lname">
+      Last Name
+    </label>
+    <input type="lname" name="lname" id="lname" required/>
+  </li>
+  <li>
+    <label for="email">
+      Email
+    </label>
+    <input type="email" name="email" id="email" />
+  </li>
+  <li>
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" required/>
+  </li>
+  <li>
+    <button type="submit" class="btn btn-success" (click)="signup()">Register</button>
+  </li>
+</ul>
+</form>

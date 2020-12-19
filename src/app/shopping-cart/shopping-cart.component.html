@@ -12,15 +12,15 @@
                 <th class="b-0 text-right">Total Price</th>
               </tr>
               <tr *ngFor="let item of cart">
-                <td>{{ item.name }}</td>
-                <td>{{ item.price }}</td>
+                <td>{{ item.name_fld }}</td>
+                <td>{{ item.price_fld }}</td>
                 <td>
                   <button class="btn btn-primary btn-sm" (click)="increaseCartItem(item)">+</button>
-                  {{ item.qty }}
+                  {{ item.qty_fld }}
                   <button class="btn btn-danger btn-sm" (click)="decreaseCartItem(item)">-</button>
                 </td>
                 <td class="text-right">
-                  <h5 class="font-medium m-b-30">{{ (item.price * item.qty) }}</h5>
+                  <h5 class="font-medium m-b-30">{{ (item.price_fld * item.qty_fld) }}</h5>
                 </td>
               </tr>
               <tr>

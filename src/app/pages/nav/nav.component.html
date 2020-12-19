@@ -22,7 +22,20 @@
               <a class="nav-link" routerLink="shopping-cart">My Cart</a>
             </li>
             <li class="nav-item mt-2 mt-md-0">
-              <a class="btn btn-outline-success my-2 my-sm-0" routerLink="signin">Sign In</a>
+              <ng-container *ngIf="!_us.loggedIn">
+                <a class="btn btn-outline-success my-2 my-sm-0" routerLink="signin">Sign In</a>
+              </ng-container>
+              <ng-container  *ngIf="_us.loggedIn">
+                <div class="dropdown">
+                  <a class="btn btn-outline-success my-2 my-sm-0" routerLink="profile">Profile</a>
+                  <ul class="dropdown-content">
+                    <li>
+                      <a class="btn btn-outline-success" routerLink="">Orders</a>
+                      <a class="btn btn-outline-success" routerLink="">Products</a>
+                    </li>
+                  </ul>
+                </div>
+              </ng-container>
             </li>
           </ul>
           </div>

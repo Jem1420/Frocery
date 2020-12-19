@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from 'src/app/services/cart.service';
-import { Product } from 'src/app/models/product';
+import { Cart } from '../../models/cart';
 
 @Component({
   selector: 'app-mycart',
@@ -8,18 +8,17 @@ import { Product } from 'src/app/models/product';
   styleUrls: ['./mycart.component.css'],
 })
 export class MycartComponent implements OnInit {
-  cartItems : Product[
-    // {id: 1, prodId:1, prodName: 'Test1', qty: 4, price: 100},
-    // {id: 2, prodId:3, prodName: 'Test2', qty: 5, price: 200},
-    // {id: 3, prodId:1, prodName: 'Test3', qty: 4, price: 300},
-    // {id: 4, prodId:4, prodName: 'Test4', qty: 3, price: 400}
-  ]= [];
+  cartItems : Cart[]= [];
   cartTotal = 0;
 
   constructor(private _cs: CartService) {}
 
   ngOnInit(): void {
     this.cartItems = this._cs.getItemLocally();
+  }
+
+  getTotal(){
+    return this.cartItems.reduce((i,j) => i+j.price_fld * j.qty_fld, 0)
   }
 
 

@@ -22,6 +22,7 @@ import { PaymentComponent } from './checkout/payment/payment.component';
 import { PlaceOrderComponent } from './checkout/place-order/place-order.component';
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { SignupComponent } from './signup/signup.component';
     PaymentComponent,
     PlaceOrderComponent,
     SigninComponent,
-    SignupComponent
+    SignupComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

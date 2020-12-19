@@ -1,19 +1,19 @@
 <div class="form">
-  <form>
+  <form (submit)="OpenPlaceOrder($event)">
     <ul class="form-container">
       <li>
         <h2>Payment</h2>
       </li>
       <li>
         <div>
-          <input type="radio" name="paymentMethod" id="paymentMethod" value="paypal" />
-          <label htmlFor="paymentMethod">
+          <input type="radio" name="paymentMethod" id="paymentMethod" value="paypal"/>
+          <label for="paymentMethod">
             Paypal
           </label>
         </div>
       </li>
       <li>
-        <button type="submit" class="btn btn-success" (click)="OpenPlaceOrder()">CONTINUE</button>
+        <button type="submit" class="btn btn-success">CONTINUE</button>
       </li>
     </ul>
   </form>

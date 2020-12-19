@@ -11,14 +11,14 @@ import { Router } from '@angular/router';
 export class ShoppingCartComponent implements OnInit {
   cart : Product[] = [];
   cartTotal = 0;
-  constructor(private _cs: CartService, private route: Router) { }
+  constructor(private _cs: CartService,private route: Router) { }
 
   ngOnInit(): void {
     this.cart = this._cs.getItemLocally();
     console.log(this.cart);
   }
   getTotal(){
-    return this.cart.reduce((i,j) => i+j.price * j.qty, 0)
+    return this.cart.reduce((i,j) => i+j.price_fld * j.qty_fld, 0)
   }
   increaseCartItem(product){
     this._cs.addProduct(product);

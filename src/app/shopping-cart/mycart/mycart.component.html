@@ -4,6 +4,6 @@
     <app-cart-item [cartItem] = "item"></app-cart-item>
   </li>
   <li class="list-group-item bg-success text-white">
-    <strong>Total: {{ cartTotal | currency:"₱"}}</strong>
+    <strong>Total: {{ getTotal() | currency:"₱"}}</strong>
   </li>
 </ul>

@@ -10,6 +10,7 @@ import { PlaceOrderComponent } from './checkout/place-order/place-order.componen
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 import { AuthGuard } from './services/auth.guard';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path: 'place-order', component: PlaceOrderComponent, canActivate: [AuthGuard]},
   {path: 'signin', component: SigninComponent},
   {path: 'signup', component: SignupComponent},
+  {path: 'profile', component: ProfileComponent},
   {path: '', redirectTo: 'home', pathMatch: 'full'}
 ];
 

@@ -1,1 +1,84 @@
-<p>place-order works!</p>
+<div class="placeorder">
+  <div class="placeorder-info" >
+    <div>
+      <h3>
+        Shipping
+        </h3>
+      <div *ngFor="let i of shipping">
+        {{i.address}}, {{i.city}}, {{i.postal}}, {{i.country}}
+        <!-- {cart.shipping.address}, {cart.shipping.city},{cart.shipping.postalCode},{cart.shipping.country} -->
+      </div>
+    </div>
+    <div  *ngFor="let i of payment">
+      <h3>Payment</h3>
+      <div>
+        Payment Method: {{i.paymentSelect}}
+      </div>
+    </div>
+    <div>
+
+      <ul class="cart-list-container">
+        <li>
+          <h3>
+            Shopping Cart
+          </h3>
+          <div>
+            Price
+          </div>
+        </li>
+        <!-- {
+          cartItems.length === 0 ?
+            <div>
+              Cart is empty
+            </div> :
+            cartItems.map(item => -->
+              <li  *ngFor="let i of cartItems">
+                <div class="cart-image">
+                  <img src={{i.image_fld}} alt="product" />
+                </div>
+                <div class="cart-name">
+                  <div>
+                    <!-- <Link to={"/product/" + item.product}>
+                      {item.name}
+                    </Link> -->
+
+                  </div>
+                  <div>
+                    Qty:{{i.qty_fld}}
+                  </div>
+                </div>
+                <div class="cart-price">
+                ₱{{i.price_fld}}
+                </div>
+              </li>
+      </ul>
+    </div>
+
+  </div>
+  <div class="placeorder-action">
+    <ul>
+      <li>
+        <button class="btn btn-success" >Place Order</button>
+      </li>
+      <li>
+        <h3>Order Summary</h3>
+      </li>
+      <li>
+        <div>Items</div>
+        <div>₱{{getTotal()}}</div>
+      </li>
+      <li>
+        <div>Shipping</div>
+        <div>₱{{(getTotal() > 100 ? 30:75)}}</div>
+      </li>
+      <li>
+        <div>Tax</div>
+        <div>₱{{(getTotal() * 0.15)}}</div>
+      </li>
+      <li>
+        <div>Order Total</div>
+        <div>₱{{((getTotal() * 0.15) + (getTotal()) + (getTotal() > 100 ? 30:75))}}</div>
+      </li>
+    </ul>
+  </div>
+</div>

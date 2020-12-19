@@ -8,12 +8,18 @@ import { Router } from '@angular/router';
 })
 export class PaymentComponent implements OnInit {
 
+  payment: any[]= [];
   constructor(private route: Router) { }
 
   ngOnInit(): void {
   }
 
-  OpenPlaceOrder(){
+  OpenPlaceOrder(e){
+    let form= {
+      paymentSelect: e.target.elements[0].value
+    }
+    this.payment.push(form);
+    localStorage.setItem('paymentMethod', JSON.stringify(this.payment));
     this.route.navigate(['/place-order']);
   }
 

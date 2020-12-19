@@ -1,14 +1,24 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Subject, Observable } from 'rxjs';
+import { Cart } from '../models/cart';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-
+  private url ="http://localhost/frocery-api/";
   subject = new Subject();
   cart = [];
-  constructor( ) { }
+  shipping = [];
+  payment = [];
+
+  constructor(private http: HttpClient ) { }
+
+  getCartItems(endpoint, data): Observable<Cart[]>{
+    return this.http.post<Cart[]>(this.url + endpoint,JSON.stringify(data));
+  }
+
   setData(id, data){
     this.cart[id] = data;
   }
@@ -46,11 +56,29 @@ export class CartService {
     }
   }
 
-  addProduct(product){
+  getShippingLocally(){
+    this.saveCart();
+    if(localStorage.getItem('shipping') === null){
+      this.shipping = [];
+    }else{
+      return this.shipping = JSON.parse(localStorage.getItem('shipping'));
+    }
+  }
+
+  getPaymentLocally(){
+    this.saveCart();
+    if(localStorage.getItem('paymentMethod') === null){
+      this.payment = [];
+    }else{
+      return this.payment = JSON.parse(localStorage.getItem('paymentMethod'));
+    }
+  }
+
+  addProduct(product: Cart){
     let added = false;
     for (let p of this.cart) {
-      if (p.id===product.id) {
-        p.qty++;
+      if (p.prodid_fld===product.prodid_fld) {
+        p.qty_fld++;
         added = true;
         localStorage.setItem('cart', JSON.stringify(this.cart));
         break;
@@ -61,12 +89,12 @@ export class CartService {
     }
     localStorage.setItem('cart', JSON.stringify(this.cart));
   }
-  decreaseProduct(product){
+  decreaseProduct(product: Cart){
     for (let [index,p] of this.cart.entries()) {
-      if(p.id === product.id){
-        p.qty -= 1;
+      if(p.prodid_fld === product.id){
+        p.qty_fld -= 1;
         localStorage.setItem('cart', JSON.stringify(this.cart));
-        if (p.qty == 0) {
+        if (p.qty_fld == 0) {
           this.cart.splice(index,1);
           localStorage.setItem('cart', JSON.stringify(this.cart));
         }

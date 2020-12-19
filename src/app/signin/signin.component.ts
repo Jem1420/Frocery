@@ -30,4 +30,8 @@ export class SigninComponent implements OnInit {
     //param1:param1, param2:param2 "value pairing"
   }
 
+  openSignup(){
+    this.route.navigate(['signup']);
+  }
+
 }
